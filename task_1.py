@@ -4,15 +4,13 @@ from sh import git
 from random import random
 
 def main():
-    git.checkout("task_1")
+    git.checkout("-b", "task_1")
 
     f = open("file1.txt", "w")
     f.write("here is a file")
     f.close()
-
-    git.add("file1.txt")
-    git.commit('-m "commited new text file1"')
-    git.push()
+    git.commit("-am", "commited new text file1")
+    git.push("--set-upstream", "origin", "task1")
 
     git.checkout("-")
 
